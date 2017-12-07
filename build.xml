@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<project name="lucidj-docs" default="build-all">
+
+    <property name="docs.dir" value="${basedir}/docs"/>
+    <property name="dist.dir" value="${basedir}/dist"/>
+    <property name="cache.dir" value="${basedir}/cache"/>
+    <property name="tmp.dir" value="${cache.dir}/tmp"/>
+    <property name="libcache.dir" value="${cache.dir}/lib"/>
+
+    <macrodef name="maven-get">
+        <attribute name="groupId"/>
+        <attribute name="artifactId"/>
+        <attribute name="version"/>
+        <sequential>
+            <echo message="Downloading artifact: @{artifactId} @{version}"/>
+            <property name="maven.central" value="http://repo1.maven.org/maven2"/>
+            <local name="groupId.path"/>
+            <loadresource property="groupId.path">
+                <string value="@{groupId}"/>
+                <filterchain>
+                    <tokenfilter>
+                        <replacestring from="." to="/"/>
+                    </tokenfilter>
+                </filterchain>
+            </loadresource>
+            <mkdir dir="${libcache.dir}/@{groupId}"/>
+            <local name="artifact.filename"/>
+            <property name="artifact.filename" value="@{artifactId}-@{version}.jar"/>
+            <get src="${maven.central}/${groupId.path}/@{artifactId}/@{version}/${artifact.filename}"
+                 dest="${libcache.dir}/@{groupId}/${artifact.filename}" 
+                 usetimestamp="true" verbose="true"/>
+        </sequential>
+    </macrodef>
+
+    <target name="config-tasks">
+        <maven-get groupId="ant-contrib" artifactId="ant-contrib" version="1.0b3"/>
+        <maven-get groupId="org.asciidoctor" artifactId="asciidoctor-ant" version="1.5.3"/>
+        <path id="tasks.path">
+          <fileset dir="${libcache.dir}" includes="**/*.jar"/>
+        </path>
+        <taskdef resource="org/asciidoctor/ant/antlib.xml" classpathref="tasks.path"/>
+        <taskdef resource="net/sf/antcontrib/antlib.xml" classpathref="tasks.path"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="zero" depends="clean">
+        <delete dir="${cache.dir}"/>
+    </target>
+
+    <target name="build-html" depends="config-tasks">
+
+        <echo message="Parsing Asciidoc files from: ${docs.dir}"/>
+        <property name="html.dir" value="${dist.dir}/html"/>
+        <delete dir="${html.dir}" quiet="true"/>
+        <mkdir dir="${html.dir}"/>
+        <for param="adoc.file">
+            <fileset dir="${docs.dir}">
+                <include name="*.adoc"/><!-- Parse *.adoc files -->
+                <exclude name="_*"/><!-- Ignore dirs like _include -->
+            </fileset>
+            <sequential>
+                <local name="adoc.file.dir"/><!-- file directory -->
+                <local name="adoc.file.name"/><!-- full filename -->
+                <local name="adoc.file.noext"/><!-- filename without extension -->
+                <dirname property="adoc.file.dir" file="@{adoc.file}"/>
+                <basename property="adoc.file.name" file="@{adoc.file}"/>
+                <basename property="adoc.file.noext" suffix=".adoc" file="@{adoc.file}"/>
+
+                <!-- Copy images and other resources -->
+                <copy todir="${html.dir}">
+                    <fileset dir="${docs.dir}">
+                        <include name="${adoc.file.noext}/**/*"/>
+                    </fileset>
+                </copy>
+
+                <!-- Proceed Asciidoctor conversion -->
+                <convert sourceDirectory="${adoc.file.dir}"
+                         sourceDocumentName="${adoc.file.name}"
+                         baseDir="${docs.dir}"
+                         outputDirectory="${html.dir}"
+                         imagesDir="${html.dir}/${adoc.file.noext}"
+                         backend="xhtml5"
+                         doctype="book"
+                         safemode="unsafe">
+                    <attribute key="iconsdir" value="${html.dir}/${adoc.file.noext}"/>
+                    <attribute key="version" value="1.0"/>
+                    <attribute key="toc" value="left"/>
+                </convert>
+            </sequential>
+        </for>
+        <echo>
+            ==================================================================
+            HTML files created on: ${html.dir}
+            ==================================================================            
+        </echo>
+    </target>
+
+    <target name="build-all" depends="clean,build-html"/>
+
+</project>

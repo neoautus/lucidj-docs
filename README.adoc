@@ -1,0 +1,44 @@
+= LucidJ Docs
+// Copyright 2017 NEOautus Ltd. (http://neoautus.com)
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+This is the source for the LucidJ Documentation.
+
+Raw content is stored in Asciidoc (`.adoc`) formatted files in the `docs/` directory.
+
+== Prerequisites for Building
+
+* Ant (minimun Ant 1.8.0)
+
+== Building the Documentation Artifacts
+For details on building the documentation, see `ant -p`.
+
+These are the available targets:
+
+* `ant build-all`: builds all available versions;
+* `ant build-html`: builds only the HTML version;
+* `ant clean`: removes the `dist` directory;
+* `ant zero`: removes the `cache` directory with all downloaded tools.
+
+The output of all builds will be located in `dist` directory.
+
+== Key Directories
+Key directories to be aware of:
+
+* `docs` - where all human edited `*.adoc` files related to the documentation live, as well as various configuration, theme, and template files.
+* `cache` - custom Java code for parsing metadata in our `src/*.adoc` files to produce some `_data/` files for site & pdf navigation purposes.
+* `dist` - the generated artifacts, where:
+** `dist/html` - HTML generated version of the documentation
+
+See the additional documentation in `somewhere?` for more information about how to edit files, build for releases, or modifying any templates.
