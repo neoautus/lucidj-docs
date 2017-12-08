@@ -29,15 +29,15 @@ These are the available targets:
 * `ant build-all`: builds all available versions;
 * `ant build-html`: builds only the HTML version;
 * `ant clean`: removes the `dist` directory;
-* `ant zero`: removes the `cache` directory with all downloaded tools.
+* `ant zero`: same as `clean`, but also removes the `cache` directory with all downloaded tools.
 
 The output of all builds will be located in `dist` directory.
 
 == Key Directories
 Key directories to be aware of:
 
-* `docs` - where all human edited `*.adoc` files related to the documentation live, as well as various configuration, theme, and template files.
-* `cache` - custom Java code for parsing metadata in our `src/*.adoc` files to produce some `_data/` files for site & pdf navigation purposes.
+* `docs` - where all human edited `*.adoc` files related to the documentation live, as well as various configuration, theme, and template files
+* `cache` - stores the downloaded jars for the custom tasks and other tools
 * `dist` - the generated artifacts, where:
 ** `dist/html` - HTML generated version of the documentation
 
