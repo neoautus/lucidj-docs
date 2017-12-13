@@ -1,17 +1,11 @@
 = LucidJ Docs
-// Copyright 2017 NEOautus Ltd. (http://neoautus.com)
+// LucidJ Documentation (c) by NEOautus Ltd. (http://neoautus.com)
 //
-// Licensed under the Apache License, Version 2.0 (the "License"); you may not
-// use this file except in compliance with the License. You may obtain a copy of
-// the License at
+// LucidJ Documentation is licensed under a
+// Creative Commons Attribution-NoDerivatives 4.0 International License.
 //
-// http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-// License for the specific language governing permissions and limitations under
-// the License.
+// You should have received a copy of the license along with this
+// work. If not, see <http://creativecommons.org/licenses/by-nd/4.0/>.
 
 This is the source for the LucidJ Documentation.
 
@@ -22,6 +16,9 @@ Raw content is stored in Asciidoc (`.adoc`) formatted files in the `docs/` direc
 * Ant (minimun Ant 1.8.0)
 
 == Building the Documentation Artifacts
+
+By default, Ant will download and cache all needed tools, then invoke the `build-all` target. At this time, only the HTML rendering is implemented. The output of all builds will be located in `dist` directory.
+
 For details on building the documentation, see `ant -p`.
 
 These are the available targets:
@@ -31,9 +28,8 @@ These are the available targets:
 * `ant clean`: removes the `dist` directory;
 * `ant zero`: same as `clean`, but also removes the `cache` directory with all downloaded tools.
 
-The output of all builds will be located in `dist` directory.
-
 == Key Directories
+
 Key directories to be aware of:
 
 * `docs` - where all human edited `*.adoc` files related to the documentation live, as well as various configuration, theme, and template files
@@ -41,4 +37,17 @@ Key directories to be aware of:
 * `dist` - the generated artifacts, where:
 ** `dist/html` - HTML generated version of the documentation
 
-See the additional documentation in `somewhere?` for more information about how to edit files, build for releases, or modifying any templates.
+== AsciiDoc Resources
+
+We use AsciiDoc standard for all documentation. It's worth noticing, however, that we render all documentation with https://github.com/asciidoctor/asciidoctorj[AsciiDoctorJ] and https://github.com/asciidoctor/asciidoctor-ant[AsciiDoctor Ant] plugin.
+
+* http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/[Editing AsciiDoc with Live Preview]
+* http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
+* http://asciidoctor.org/docs/asciidoc-writers-guide/[AsciiDoc Writer’s Guide]
+* http://asciidoctor.org/docs/user-manual/[AsciiDoctor Manual]
+
+== Copyright
+
+image:https://i.creativecommons.org/l/by-nd/4.0/88x31.png[]
+
+This work is licensed under a http://creativecommons.org/licenses/by-nd/4.0/[Creative Commons Attribution-NoDerivatives 4.0 International License].
