@@ -1,2 +1,46 @@
 = LucidJ Reference Guide
+:page-layout: book
 
+
+== OSGi
+
+OSGi is the de-facto (yet mostly unknown) standard for Java modularization. Long before Jigsaw was even drafted, OSGi was running below the surface of many systems, like Eclipse. Even thou the achievements of Jigsaw still belongs to the future, it already contributed a great deal by making modularization into the news. That's a good thing, and a gift to anyone who cares about software architecture.
+// It would be good to have a timeline of adoption for OSGi X timeline of Jigsaw
+
+=== Why Modules? What was Wrong?
+
+Life in java was easy. Grab the JARs you need to build your classpath and you're good to go. Things started to get complicated when we started, very soon, to deal with versioning and the dark science of combining often compatible JARs into a meaningful classpath. -> jar hell
+
+=== JAR Hell
+
+In a nutshell, OSGi transforms the familiar JAR files into modularization units. It does it breaking the traditional classpath mechanics. Instead of build a classpath with a lot of JARs, it reverses the logic and every JAR get an individual classloader and a classpath. But, how to they talk each other?
+
+=== From Modules to Services (and µServices)
+
+Modules are great for µservices;
+µservices are the real strength of OSGi;
+
+
+=== The Zombie Objects
+
+The OSGi javadoc calls zombies any Bundle in the Bundle.UNINSTALLED state. It's the bundle's final state. In fact, it can only be reached through stale references. That's why they are aptly called _Zombie Bundles_.
+
+However zombie bundles are not alone. The bundle may have created many objects, and their references may be hanging over the system. These stale objects, bound to defunct bundles, are called _Zombie Objects_.
+
+How to detect zombie objects?
+Method 1: Invalid bundle from classloader
+
+=== Service Objects
+
+The _Service Objects_ are handled in two special ways:
+
+* They receive _Validate_ and _Invalidate_ messages marking its lifecycle;
+* They are stored on a _WeakReference_ pool. As long as their WeakReferences are valid, we can assume they have references hanging around. This allows to track stale objects leaking from their source bundle.
+
+=== Service Handles
+
+The _Service Handles_ are used to hide the relevant objects inside the bundle. Instead of the object, the only thing known outside is an Integer number, called _Service Handle_. For those who are familiar with C, it's essentially the same as the file descriptors from the low level API, like _open()_, _creat()_ and _close()_. Since the object references never travels outside the bundle, both it's lifecycle and references can be closely tracked.
+// TODO: Take open() example into a proper place
+
+== Distributed OSGi
+=== The Elephant in the Room
