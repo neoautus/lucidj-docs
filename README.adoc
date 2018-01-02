@@ -9,7 +9,12 @@
 
 This is the source for the LucidJ Documentation. It is organized as follows:
 
+ifdef::env-github[]
+[[include:docs/book-list]]
+endif::[]
+ifndef::env-github[]
 include::docs/book-list.adoc[]
+endif::[]
 
 The raw content is stored in Asciidoc (`.adoc`) formatted files in the `docs/` directory.
 

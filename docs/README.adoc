@@ -8,7 +8,12 @@
 
 LucidJ Documentation is organized as follows:
 
+ifdef::env-github[]
+[[include:book-list]]
+endif::[]
+ifndef::env-github[]
 include::book-list.adoc[]
+endif::[]
 
 TIP: Can't find the information you need? Reach out to project members and users via the https://github.com/neoautus/lucidj/issues/[Issue Tracker^] on GitHub.
 
