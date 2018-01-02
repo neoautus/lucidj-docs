@@ -8,13 +8,13 @@
 
 LucidJ Documentation is organized as follows:
 
-link:getting-started.html[Getting Started with LucidJ]::
+link:getting-started.adoc[Getting Started with LucidJ]::
   Offers an overview of LucidJ and instructions to get up and running.
 
-link:user-manual.html[LucidJ User Manual (a.k.a. Survival Guide)]::
+link:user-manual.adoc[LucidJ User Manual (a.k.a. Survival Guide)]::
   Provides instructions and details on most common and useful operations, troubleshooting, tips and tricks. Ideal to start diving on LucidJ and OSGi world.
 
-link:reference-guide.html[LucidJ Reference Guide]::
+link:reference-guide.adoc[LucidJ Reference Guide]::
   An in-depth reference of all components and features of LucidJ, as well as system internals and architecture. If you plan to contribute, extend or develop new features, this is your one stop shop.
 
 TIP: Can't find the information you need? Reach out to project members and users via the https://github.com/neoautus/lucidj/issues/[Issue Tracker] on GitHub.
