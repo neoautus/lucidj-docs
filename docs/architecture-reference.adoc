@@ -1,10 +1,13 @@
 = LucidJ Architecture Reference
 :page-layout: book
+:imagesdir: architecture-reference
 
 == OSGi
 
 OSGi is the de-facto (yet mostly unknown) standard for Java modularization. Long before Jigsaw was even drafted, OSGi was running below the surface of many systems, like Eclipse. Even thou the achievements of Jigsaw still belongs to the future, it already contributed a great deal by making modularization into the news. That's a good thing, and a gift to anyone who cares about software architecture.
 // It would be good to have a timeline of adoption for OSGi X timeline of Jigsaw
+
+image::Osgi_framework.svg[OSGi Framework]
 
 == The Problems to Solve
 
