@@ -1,4 +1,4 @@
-= LucidJ Docs
+= LucidJ Documentation
 // LucidJ Documentation (c) by NEOautus Ltd. (http://neoautus.com)
 //
 // LucidJ Documentation is licensed under a
@@ -7,9 +7,11 @@
 // You should have received a copy of the license along with this
 // work. If not, see <http://creativecommons.org/licenses/by-nd/4.0/>.
 
-This is the source for the LucidJ Documentation.
+This is the source for the LucidJ Documentation. It is organized as follows:
 
-Raw content is stored in Asciidoc (`.adoc`) formatted files in the `docs/` directory.
+include::docs/book-list.adoc[]
+
+The raw content is stored in Asciidoc (`.adoc`) formatted files in the `docs/` directory.
 
 == Prerequisites for Building
 
