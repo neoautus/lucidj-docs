@@ -7,24 +7,7 @@
 // You should have received a copy of the license along with this
 // work. If not, see <http://creativecommons.org/licenses/by-nd/4.0/>.
 
-This is the source for the LucidJ Documentation. It is organized as follows:
-
-ifdef::env-github[]
-<<getting-started.adoc#,Getting Started with LucidJ>>::
-  Offers an overview of LucidJ and instructions to get up and running.
-
-<<user-manual.adoc#,LucidJ User Manual (a.k.a. Survival Guide)>>::
-  Provides instructions and details on most common and useful operations, troubleshooting, tips and tricks. Ideal to start diving on LucidJ and OSGi world.
-
-<<architecture-reference.adoc#,LucidJ Architecture Reference>>::
-  Discusses the main architectural issues and solutions used on LucidJ and OSGi.
-
-<<reference-guide.adoc#,LucidJ Reference Guide>>::
-  An in-depth reference of all components and features of LucidJ, as well as system internals and architecture. If you plan to contribute, extend or develop new features, this is your one stop shop.
-endif::[]
-ifndef::env-github[]
-include::docs/book-list.adoc[]
-endif::[]
+This is the source for the <<docs/README.adoc,LucidJ Documentation>>.
 
 The raw content is stored in Asciidoc (`.adoc`) formatted files in the `docs/` directory.
 

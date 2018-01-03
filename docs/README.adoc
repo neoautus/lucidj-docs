@@ -1,4 +1,4 @@
-= LucidJ Documentation
+= LucidJ Documentation Overview
 :description: Index page for all LucidJ Documentation.
 :keywords: LucidJ, Documentation, Architecture, Deployment, OSGi
 :page-layout: docs
@@ -8,8 +8,6 @@
 
 LucidJ Documentation is organized as follows:
 
-ifdef::env-github[]
-// Github should implement https://github.com/github/markup/issues/1095
 <<getting-started.adoc#,Getting Started with LucidJ>>::
   Offers an overview of LucidJ and instructions to get up and running.
 
@@ -21,10 +19,6 @@ ifdef::env-github[]
 
 <<reference-guide.adoc#,LucidJ Reference Guide>>::
   An in-depth reference of all components and features of LucidJ, as well as system internals and architecture. If you plan to contribute, extend or develop new features, this is your one stop shop.
-endif::[]
-ifndef::env-github[]
-include::book-list.adoc[]
-endif::[]
 
 TIP: Can't find the information you need? Reach out to project members and users via the https://github.com/neoautus/lucidj/issues/[Issue Tracker^] on GitHub.
 
