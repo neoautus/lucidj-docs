@@ -2,6 +2,10 @@
 :page-layout: book
 :imagesdir: architecture-reference
 
+This document discusses the current architectural decisions.
+
+All the source code is available at the https://github.com/neoautus/architecture-examples[Architecture Examples repository].
+
 == OSGi
 
 OSGi is the de-facto (yet mostly unknown) standard for Java modularization. Long before Jigsaw was even drafted, OSGi was running below the surface of many systems, like Eclipse. Even thou the achievements of Jigsaw still belongs to the future, it already contributed a great deal by making modularization into the news. That's a good thing, and a gift to anyone who cares about software architecture.
