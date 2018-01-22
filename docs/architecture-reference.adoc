@@ -62,7 +62,12 @@ The _Service Objects_ are handled in two special ways:
 The _Service Handles_ are used to hide the relevant objects inside the bundle. Instead of the object, the only thing known outside is an Integer number, called _Service Handle_. For those who are familiar with C, it's essentially the same as the file descriptors from the low level API, like _open()_, _creat()_ and _close()_. Since the object references never travels outside the bundle, both it's lifecycle and references can be closely tracked.
 // TODO: Take open() example into a proper place
 
-=== Problem #4 - ClassLoader Acrobatics
+=== Problem #4 - Service Dependencies
+
+TODO::
+* Use resource dependencies to manage service dependencies.
+
+=== Problem #5 - ClassLoader Acrobatics
 
 TODO::
 * ClassLoader tweaking is bad for your health and sleep;
@@ -70,12 +75,12 @@ TODO::
 * Many ClassLoader problems are solved with great elegance with OSGi;
 * Treat ClassLoader as no man's land and leave it to whoever wants to fight for.
 
-=== Problem #5 - Interfaces are not the Only Answer: Aggregates
+=== Problem #6 - Interfaces are not the Only Answer: Aggregates
 
 TODO::
 * Describe
 
-=== Problem #6 - Distributed OSGi
+=== Problem #7 - Distributed OSGi
 
 TODO::
 * Describe
